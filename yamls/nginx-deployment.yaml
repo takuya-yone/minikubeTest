@@ -22,24 +22,24 @@ spec:
         app: nginx
     spec:
       containers:
-      - image: python:3.8.7
-        name: python
+      - image: mongo:latest
+        name: mongo
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5000
           protocol: TCP
-      # - image: redis:6.2-rc
-      #   name: redis
-      #   imagePullPolicy: IfNotPresent
-      # - image: nginx:1.14.2
-      #   name: nginx
-      #   imagePullPolicy: IfNotPresent
-      #   ports:
-      #   - containerPort: 80
-      #     protocol: TCP
-      #   resources: {}
-      #   terminationMessagePath: /dev/termination-log
-      #   terminationMessagePolicy: File
+      - image: redis:6.2-rc
+        name: redis
+        imagePullPolicy: IfNotPresent
+      - image: nginx:1.14.2
+        name: nginx
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
