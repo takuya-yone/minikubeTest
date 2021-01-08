@@ -1,42 +1,8 @@
 apiVersion: v1
 kind: Service
 metadata:
-  creationTimestamp: "2021-01-08T17:30:53Z"
-  managedFields:
-  - apiVersion: v1
-    fieldsType: FieldsV1
-    fieldsV1:
-      f:spec:
-        f:externalTrafficPolicy: {}
-        f:ports:
-          .: {}
-          k:{"port":80,"protocol":"TCP"}:
-            .: {}
-            f:port: {}
-            f:protocol: {}
-            f:targetPort: {}
-        f:selector:
-          .: {}
-          f:app: {}
-        f:sessionAffinity: {}
-        f:type: {}
-    manager: kubectl-expose
-    operation: Update
-    time: "2021-01-08T17:30:53Z"
-  - apiVersion: v1
-    fieldsType: FieldsV1
-    fieldsV1:
-      f:spec:
-        f:ports:
-          k:{"port":80,"protocol":"TCP"}:
-            f:nodePort: {}
-    manager: kubectl-edit
-    operation: Update
-    time: "2021-01-08T17:33:34Z"
   name: nginx-service
   namespace: default
-  resourceVersion: "1889"
-  uid: f6098186-67d2-4376-a617-e5475fc7bb21
 spec:
   clusterIP: 10.106.181.154
   clusterIPs:
@@ -51,5 +17,3 @@ spec:
     app: nginx
   sessionAffinity: None
   type: NodePort
-status:
-  loadBalancer: {}

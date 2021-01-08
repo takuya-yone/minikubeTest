@@ -3,8 +3,8 @@ try minikube
 
 ### script
 ```
-minikube start --vm=true
 minikube start
+minikube start --vm=true
 minikube addons enable ingress
 minikube addons enable ingress-dns
 minikube addons enable metrics-server
