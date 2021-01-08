@@ -22,17 +22,23 @@ spec:
         app: nginx
     spec:
       containers:
-      - image: mongo:latest
-        name: mongo
+      - name: python
+        image: takuyayone/test-python:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5000
+          protocol: TCP  
+      - name: mongo
+        image: mongo:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5000
           protocol: TCP
-      - image: redis:6.2-rc
-        name: redis
+      - name: redis
+        image: redis:6.2-rc
         imagePullPolicy: IfNotPresent
-      - image: nginx:1.14.2
-        name: nginx
+      - name: nginx
+        image: nginx:1.14.2
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80

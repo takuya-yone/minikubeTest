@@ -20,3 +20,8 @@ kubectl delete deployment test-deployment
 kubectl delete service test-service
 kubectl delete ingress test-ingress
 ```
+
+### create container
+```
+docker build -f ../docker/Dockerfile -t test-python:latest
+```
