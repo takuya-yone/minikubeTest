@@ -12,7 +12,10 @@ minikube addons enable dashboard
 kubectl apply -f yamls/nginx-deployment.yaml
 kubectl apply -f yamls/nginx-service.yaml
 kubectl apply -f yamls/nginx-ingress.yaml
+```
 
+### cleanup
+```
 kubectl delete deployment nginx-deployment
 kubectl delete service nginx-service
 kubectl delete ingress nginx-ingress
