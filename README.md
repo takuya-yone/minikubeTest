@@ -9,14 +9,14 @@ minikube addons enable ingress
 minikube addons enable ingress-dns
 minikube addons enable metrics-server
 minikube addons enable dashboard
-kubectl apply -f yamls/nginx-deployment.yaml
-kubectl apply -f yamls/nginx-service.yaml
-kubectl apply -f yamls/nginx-ingress.yaml
+kubectl apply -f yamls/test-deployment.yaml
+kubectl apply -f yamls/test-service.yaml
+kubectl apply -f yamls/test-ingress.yaml
 ```
 
 ### cleanup
 ```
-kubectl delete deployment nginx-deployment
-kubectl delete service nginx-service
-kubectl delete ingress nginx-ingress
+kubectl delete deployment test-deployment
+kubectl delete service test-service
+kubectl delete ingress test-ingress
 ```
