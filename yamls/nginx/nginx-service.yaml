@@ -8,12 +8,12 @@ spec:
   clusterIPs:
   - 10.106.181.154
   externalTrafficPolicy: Cluster
+  type: NodePort
   ports:
   - nodePort: 30080
     port: 80
     protocol: TCP
-    targetPort: 80
+    targetPort: nginx-dep-port
   selector:
-    app: nginx-deployment
+    app: nginx-dep
   sessionAffinity: None
-  type: NodePort
