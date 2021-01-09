@@ -8,6 +8,7 @@ spec:
   clusterIPs:
   - 10.106.181.155
   externalTrafficPolicy: Cluster
+  type: NodePort
   ports:
   - nodePort: 30081
     port: 5000
@@ -16,4 +17,3 @@ spec:
   selector:
     app: python-deployment
   sessionAffinity: None
-  type: NodePort
