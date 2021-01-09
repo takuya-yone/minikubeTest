@@ -13,17 +13,22 @@ minikube addons enable dashboard
 
 ### create service
 ```
-kubectl apply -f yamls/test-deployment.yaml
-kubectl apply -f yamls/test-service.yaml
-kubectl apply -f yamls/test-ingress.yaml
+kubectl apply -f yamls/nginx/nginx-deployment.yaml
+kubectl apply -f yamls/nginx/nginx-service.yaml
+
+kubectl apply -f yamls/python/python-deployment.yaml
+kubectl apply -f yamls/python/python-service.yaml
+
+kubectl apply -f yamls/local-ingress.yaml
 ```
 ### cleanup
 ```
-kubectl delete deployment test-deployment
-kubectl delete service test-service
-kubectl delete ingress test-ingress
+kubectl delete ingress local-ingress
+kubectl delete service nginx-service
+kubectl delete service python-service
+kubectl delete deployment nginx-deployment
+kubectl delete deployment python-deployment
 ```
-
 ### create docker image
 ```
 docker build -f ../docker/Dockerfile -t test-python:latest
