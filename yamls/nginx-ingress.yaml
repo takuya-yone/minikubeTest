@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: test-ingress
+  name: nginx-ingress
 spec:
   rules:
     - host: local-ingress.com
@@ -11,6 +11,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: test-service
+                name: nginx-service
                 port:
-                  number: 30000
+                  number: 30080

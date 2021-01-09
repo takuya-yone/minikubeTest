@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-service
+  namespace: default
+spec:
+  clusterIP: 10.106.181.155
+  clusterIPs:
+  - 10.106.181.155
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 30081
+    port: 5000
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app: python-deployment
+  sessionAffinity: None
+  type: NodePort
