@@ -15,5 +15,5 @@ spec:
     protocol: TCP
     targetPort: 5000
   selector:
-    app: python-deployment
+    app: python-dep
   sessionAffinity: None

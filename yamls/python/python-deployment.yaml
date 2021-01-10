@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: python-deployment
+  name: python-dep
   namespace: default
 spec:
   progressDeadlineSeconds: 600
@@ -9,7 +9,7 @@ spec:
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: python-deployment
+      app: python-dep
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -19,7 +19,7 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        app: python-deployment
+        app: python-dep
     spec:
       containers:
       - name: python
