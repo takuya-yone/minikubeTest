@@ -30,7 +30,7 @@ spec:
             - --log.level=DEBUG
             - --api
             - --api.insecure
-            - --entrypoints.web.address=:80
+            - --entrypoints.app.address=:80
             - --providers.kubernetesingress
           ports:
             - name: traefik-web
@@ -44,6 +44,8 @@ kind: Service
 metadata:
   name: traefik-service
   namespace: default
+  labels:
+    app: traefik-service
 spec:
   type: NodePort
   selector:

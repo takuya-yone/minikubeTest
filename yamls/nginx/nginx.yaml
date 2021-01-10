@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: python-dep
+  name: nginx-dep
   namespace: default
   labels:
-    app: python-dep
+    app: nginx-dep
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: python-dep
+      app: nginx-dep
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -21,15 +21,16 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        app: python-dep
+        app: nginx-dep
     spec:
       containers:
-      - name: python
-        image: takuyayone/test-python:latest
+      - name: nginx
+        image: nginx:1.14.2
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 5000
-          protocol: TCP  
+        - name: nginx-dep-port
+          containerPort: 80
+          protocol: TCP
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
@@ -42,19 +43,21 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: python-service
+  name: nginx-service
   namespace: default
+  labels:
+    app: nginx-service
 spec:
-  clusterIP: 10.106.181.155
+  clusterIP: 10.106.181.154
   clusterIPs:
-  - 10.106.181.155
+  - 10.106.181.154
   externalTrafficPolicy: Cluster
   type: NodePort
   ports:
-  - nodePort: 30083
-    port: 5000
+  - nodePort: 30082
+    port: 80
     protocol: TCP
-    targetPort: 5000
+    targetPort: 80
   selector:
-    app: python-dep
+    app: nginx-dep
   sessionAffinity: None
