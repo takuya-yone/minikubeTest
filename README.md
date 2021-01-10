@@ -13,25 +13,30 @@ minikube addons enable dashboard
 
 ### create service
 ```
-kubectl apply -f yamls/nginx/nginx-deployment.yaml
-kubectl apply -f yamls/nginx/nginx-service.yaml
+kubectl apply -f yamls/nginx/nginx.yaml
 
-kubectl apply -f yamls/python/python-deployment.yaml
-kubectl apply -f yamls/python/python-service.yaml
+kubectl apply -f yamls/python/python.yaml
 
-kubectl apply -f yamls/traefik/traefik-serviceaccount.yaml
-kubectl apply -f yamls/traefik/traefik-deployment.yaml
-kubectl apply -f yamls/traefik/traefik-service.yaml
+kubectl apply -f yamls/traefik/rbac.yaml
+kubectl apply -f yamls/traefik/traefik.yaml
 
 kubectl apply -f yamls/local-ingress.yaml
 ```
 ### cleanup
 ```
 kubectl delete ingress local-ingress
+
 kubectl delete service nginx-service
+kubectl delete deployment nginx-dep
+
 kubectl delete service python-service
-kubectl delete deployment nginx-deployment
-kubectl delete deployment python-deployment
+kubectl delete deployment python-dep
+
+kubectl delete service traefik-service
+kubectl delete deployment traefik-dep
+kubectl delete serviceaccounts traefik-ingress-controller
+kubectl delete clusterrole traefik-ingress-controller
+kubectl delete clusterrolebindings traefik-ingress-controller
 ```
 ### create docker image
 ```
