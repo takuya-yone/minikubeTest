@@ -19,6 +19,10 @@ kubectl apply -f yamls/nginx/nginx-service.yaml
 kubectl apply -f yamls/python/python-deployment.yaml
 kubectl apply -f yamls/python/python-service.yaml
 
+kubectl apply -f yamls/traefik/traefik-serviceaccount.yaml
+kubectl apply -f yamls/traefik/traefik-deployment.yaml
+kubectl apply -f yamls/traefik/traefik-service.yaml
+
 kubectl apply -f yamls/local-ingress.yaml
 ```
 ### cleanup
