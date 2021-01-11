@@ -52,10 +52,9 @@ spec:
   clusterIPs:
   - 10.106.181.154
   externalTrafficPolicy: Cluster
-  type: NodePort
+  type: LoadBalancer
   ports:
-  - nodePort: 30082
-    port: 80
+  - port: 80
     protocol: TCP
     targetPort: 80
   selector:

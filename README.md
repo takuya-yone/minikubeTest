@@ -13,14 +13,20 @@ minikube addons enable dashboard
 
 ### create service
 ```
-kubectl apply -f yamls/nginx/nginx.yaml
+kubectl apply -f yamls/nginx
 
-kubectl apply -f yamls/python/python.yaml
+kubectl apply -f yamls/python
 
-kubectl apply -f yamls/traefik/rbac.yaml
-kubectl apply -f yamls/traefik/traefik.yaml
+kubectl apply -f yamls/traefik
+
+kubectl apply -f yamls/prometheus
+
+kubectl apply -f yamls/grafana
 
 kubectl apply -f yamls/local-ingress.yaml
+
+minikube tunnel
+minikube dashboard
 ```
 ### cleanup
 ```
@@ -31,6 +37,12 @@ kubectl delete deployment nginx-dep
 
 kubectl delete service python-service
 kubectl delete deployment python-dep
+
+kubectl delete service grafana-service
+kubectl delete deployment grafana-dep
+
+kubectl delete service prometheus-service
+kubectl delete deployment prometheus-dep
 
 kubectl delete service traefik-service
 kubectl delete deployment traefik-dep
