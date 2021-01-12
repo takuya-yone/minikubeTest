@@ -6,4 +6,4 @@ ADD ./app /app/
 RUN pip install -r requirements.txt
 
 EXPOSE 5000
-CMD ["uvicorn", "app.api:app", "port", "5000"]
+CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "5000"]
