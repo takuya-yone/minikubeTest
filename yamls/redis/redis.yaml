@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: grafana-dep
+  name: redis-dep
   namespace: default
   labels:
-    app: grafana-dep
+    app: redis-dep
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: grafana-dep
+      app: redis-dep
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -21,15 +21,15 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        app: grafana-dep
+        app: redis-dep
     spec:
       containers:
-      - name: grafana
-        image: grafana/grafana:7.3.6
+      - name: redis
+        image: redis:6.2-rc2
         imagePullPolicy: IfNotPresent
         ports:
-        - name: grafana-depport
-          containerPort: 3000
+        - name: redis-dep-port
+          containerPort: 6379
           protocol: TCP
         resources: {}
         terminationMessagePath: /dev/termination-log
@@ -43,20 +43,20 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: grafana-service
+  name: redis-service
   namespace: default
   labels:
-    app: grafana-service
+    app: redis-service
 spec:
-  clusterIP: 10.106.181.155
+  clusterIP: 10.106.181.151
   clusterIPs:
-  - 10.106.181.155
+  - 10.106.181.151
   externalTrafficPolicy: Cluster
   type: LoadBalancer
   ports:
-  - port: 3000
+  - port: 6379
     protocol: TCP
-    targetPort: 3000
+    targetPort: 6379
   selector:
-    app: grafana-dep
+    app: redis-dep
   sessionAffinity: None

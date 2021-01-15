@@ -17,6 +17,8 @@ kubectl apply -f yamls/nginx
 
 kubectl apply -f yamls/python
 
+kubectl apply -f yamls/redis/
+
 kubectl apply -f yamls/traefik
 
 kubectl apply -f yamls/prometheus
@@ -37,6 +39,9 @@ kubectl delete deployment nginx-dep
 
 kubectl delete service python-service
 kubectl delete deployment python-dep
+
+kubectl delete service redis-service
+kubectl delete deployment redis-dep
 
 kubectl delete service grafana-service
 kubectl delete deployment grafana-dep

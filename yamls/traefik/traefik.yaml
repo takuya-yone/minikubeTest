@@ -27,14 +27,15 @@ spec:
             - --api.dashboard=true
             - --api.insecure=true
             - --entrypoints.web.address=:80
-            - --providers.kubernetesingress
             - --accesslog=true
             - --metrics=true
             - --metrics.prometheus=true
             - --metrics.prometheus.buckets=0.100000, 0.300000, 1.200000, 5.000000
             - --metrics.prometheus.addEntryPointsLabels=true
             - --metrics.prometheus.addServicesLabels=true
-
+            - --providers.kubernetesingress=true
+            - --providers.kubernetesingress.disablepasshostheaders=true
+            - --providers.kubernetesingress.namespaces=default
           ports:
             - name: traefik-web
               containerPort: 80
@@ -49,9 +50,9 @@ metadata:
   labels:
     app: traefik-service
 spec:
-  clusterIP: 10.106.181.156
+  clusterIP: 10.106.181.153
   clusterIPs:
-  - 10.106.181.156
+  - 10.106.181.153
   externalTrafficPolicy: Cluster
   type: LoadBalancer
   selector:

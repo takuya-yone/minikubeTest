@@ -57,9 +57,9 @@ metadata:
   labels:
     app: prometheus-service
 spec:
-  clusterIP: 10.106.181.158
+  clusterIP: 10.106.181.154
   clusterIPs:
-  - 10.106.181.158
+  - 10.106.181.154
   externalTrafficPolicy: Cluster
   type: LoadBalancer
   ports:

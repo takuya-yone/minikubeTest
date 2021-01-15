@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
       - name: python
-        image: takuyayone/test-python:0.0.3
+        image: takuyayone/test-python:0.0.5
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5000
@@ -47,9 +47,9 @@ metadata:
   labels:
     app: python-service
 spec:
-  clusterIP: 10.106.181.155
+  clusterIP: 10.106.181.152
   clusterIPs:
-  - 10.106.181.155
+  - 10.106.181.152
   externalTrafficPolicy: Cluster
   type: LoadBalancer
   ports:

@@ -1,2 +1,5 @@
 fastapi
+datetime
+PyJWT
+redis
 uvicorn
