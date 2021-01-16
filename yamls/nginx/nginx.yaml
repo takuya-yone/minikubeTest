@@ -9,16 +9,6 @@ data:
         listen       80;
         server_name  nginx-service;
 
-        # location /grafana/ {
-        #     proxy_pass http://grafana-service:3000;
-        #     proxy_redirect default;
-        # }
-
-        # location /prometheus/ {
-        #     proxy_pass http://prometheus-service:9090;
-        #     proxy_redirect default;
-        # }
-
         location / {
             root   /usr/share/nginx/html;
             index  index.html index.htm;
