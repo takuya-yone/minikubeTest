@@ -11,13 +11,19 @@ minikube addons enable metrics-server
 minikube addons enable dashboard
 ```
 
+### enable minikube service
+```
+minikube tunnel
+minikube dashboard
+```
+
 ### create service
 ```
 kubectl apply -f yamls/nginx
 
 kubectl apply -f yamls/python
 
-kubectl apply -f yamls/redis/
+kubectl apply -f yamls/redis
 
 kubectl apply -f yamls/traefik
 
@@ -27,8 +33,7 @@ kubectl apply -f yamls/grafana
 
 kubectl apply -f yamls/local-ingress.yaml
 
-minikube tunnel
-minikube dashboard
+
 ```
 ### cleanup
 ```

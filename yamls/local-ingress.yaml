@@ -4,7 +4,8 @@ metadata:
   name: local-ingress
   namespace: default
   annotations:
-    traefik.ingress.kubernetes.io/rewrite-target: /$2
+    # kubernetes.io/ingress.class: traefik
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
     traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   rules:
