@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
       - name: python
-        image: takuyayone/test-python:0.0.5
+        image: takuyayone/test-python:0.0.6
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5000
