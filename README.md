@@ -62,5 +62,7 @@ kubectl delete clusterrolebindings traefik-ingress-controller
 ```
 ### create docker image
 ```
-docker build -f ../docker/Dockerfile -t test-python:latest
+docker-compose up -d --build
+docker-compose down
+docker build -f ../build/Dockerfile -t test-python:latest
 ```

@@ -1,0 +1,8 @@
+version: "2"
+services:
+  test-python:
+    build: ./build/
+    volumes:
+      - "./build/app:/app"
+    ports:
+      - "5000:5000"

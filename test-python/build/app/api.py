@@ -8,7 +8,7 @@ app = FastAPI()
 
 @app.get('/') 
 async def hello(response: Response):
-    return {"text": "hello world!"}
+    return {"text": "helleo world!"}
 
 @app.get('/set_cookie') 
 async def set_cookie(response: Response):
