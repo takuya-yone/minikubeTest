@@ -1,0 +1,46 @@
+version: "2"
+services:
+  cockroachdb1:
+    container_name: cockroachdb1
+    image: cockroachdb/cockroach
+    hostname: cockroachdb1
+    # networks:
+    #   main:
+    #     aliases:
+    #       - cockroachdb1
+    ports:
+      - 8081:8080
+      - 26257:26257
+    # networks:
+    #   cockroachdb_net:
+    #     aliases:
+    #       - cockroachdb1
+    command: > 
+      start --insecure --join=cockroachdb1,cockroachdb2,cockroachdb3,cockroachdb4,cockroachdb5
+  cockroachdb2:
+    container_name: cockroachdb2
+    image: cockroachdb/cockroach
+    hostname: cockroachdb2
+    command: >           
+      start --insecure --join=cockroachdb1,cockroachdb2,cockroachdb3,cockroachdb4,cockroachdb5
+  cockroachdb3:
+    container_name: cockroachdb3
+    image: cockroachdb/cockroach
+    hostname: cockroachdb3
+    command: >      
+      start --insecure --join=cockroachdb1,cockroachdb2,cockroachdb3,cockroachdb4,cockroachdb5
+  cockroachdb4:
+    container_name: cockroachdb4
+    image: cockroachdb/cockroach
+    hostname: cockroachdb4
+    command: >      
+      start --insecure --join=cockroachdb1,cockroachdb2,cockroachdb3,cockroachdb4,cockroachdb5
+  cockroachdb5:
+    container_name: cockroachdb5
+    image: cockroachdb/cockroach
+    hostname: cockroachdb5
+    command: >      
+      start --insecure --join=cockroachdb1,cockroachdb2,cockroachdb3,cockroachdb4,cockroachdb5 
+# networks:
+#   main:
+
