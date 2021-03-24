@@ -6,3 +6,10 @@ services:
       - "./build/app:/app"
     ports:
       - "5000:5000"
+  
+  test-python2:
+    build: ./build2/
+    volumes:
+      - "./build2/app:/app"
+    ports:
+      - "9999:5000"
