@@ -1,0 +1,30 @@
+stages:
+  - prepare
+  - build
+
+prepare:
+  stage: prepare
+  image: docker:stable
+  services:
+    - docker:dind
+  script:
+    - docker images
+
+build:
+  image: docker/compose:latest
+  stage: build
+  services:
+    - docker:dind
+  script:
+    - mkdir output
+    - docker-compose build
+    - docker images
+    - docker save docker-compose_test-python:latest > ./output/docker-compose_test-python.tar.gz
+  artifacts:
+    expire_in: 24 hrs
+    paths:
+      - output
+
+variables:
+  # 証明書を明示的に無効
+  DOCKER_TLS_CERTDIR: ""
