@@ -3,12 +3,43 @@ import hashlib
 import datetime
 import jwt
 import redis
+import logging
+from rich.logging import RichHandler
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(message)s",
+    datefmt="[%X]",
+    handlers=[RichHandler(rich_tracebacks=True)],
+)
+
+logger = logging.getLogger(__name__)
+logger.info("Hello, World!")
+
 
 app = FastAPI()
 
+# logger
+# logger = getLogger(__name__)
+# handler = StreamHandler()
+# handler.setLevel(DEBUG)
+# logger.setLevel(DEBUG)
+# logger.addHandler(handler)
+# logger.propagate = False
+
+# console
+# console = Console()
+
 @app.get('/') 
 async def hello(response: Response):
-    return {"text": "root!"}
+    logger.debug('----xxxx-----')
+    logger.debug('----aiueo-----')
+    logger.error("error!!!")
+    logger.critical("critical...")
+    # console.log(logger)
+
+    # print('hello')
+    return {"text": "root!!!!"}
 @app.get('/api/') 
 async def hello(response: Response):
     return {"text": "helleo world!"}
