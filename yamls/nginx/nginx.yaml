@@ -8,10 +8,10 @@ data:
     server {
         listen       80;
         server_name  nginx-service;
+
         # location / {
         #     proxy_pass  http://python-service:5000/;
         # }
-
 
         error_page  404              /404.html;
 
