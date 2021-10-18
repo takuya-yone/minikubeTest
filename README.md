@@ -81,5 +81,5 @@ curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/i
 
 # for Master
 sudo systemctl start docker
-
+sudo docker run -d --restart=unless-stopped -p 80:80 -p 443:443 --privileged rancher/rancher
 ```
