@@ -79,6 +79,15 @@ sudo systemctl start docker
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
+curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
+sudo mv kubectl /usr/local/bin/kubectl
+sudo chmod +x /usr/local/bin/kubectl
+echo 'source <(kubectl completion bash)' >>~/.bashrc
+kubectl completion bash > kubectl-completer
+sudo kubectl completion bash >/etc/bash_completion.d/kubectl
+sudo mv kubectl-completer /etc/bash_completion.d/kubectl-completer
+echo 'alias k=kubectl' >>~/.bashrc
+echo 'complete -F __start_kubectl k' >>~/.bashrc
 git clone https://github.com/takuya-yone/minikubeTest.git
 
 # for Master
