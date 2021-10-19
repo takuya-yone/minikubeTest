@@ -47,11 +47,11 @@ metadata:
   labels:
     app: python-service
 spec:
-  clusterIP: 10.106.181.152
-  clusterIPs:
-  - 10.106.181.152
-  externalTrafficPolicy: Cluster
-  type: LoadBalancer
+  # clusterIP: 10.106.181.152
+  # clusterIPs:
+  # - 10.106.181.152
+  # externalTrafficPolicy: Cluster
+  type: ClusterIP
   ports:
   - port: 5000
     protocol: TCP
