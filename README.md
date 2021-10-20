@@ -89,6 +89,8 @@ sudo mv kubectl-completer /etc/bash_completion.d/kubectl-completer
 echo 'alias k=kubectl' >>~/.bashrc
 echo 'complete -F __start_kubectl k' >>~/.bashrc
 git clone https://github.com/takuya-yone/minikubeTest.git
+docker pull rancher/rancher
+docker pull rancher/rancher-agent:v2.6.2
 
 # for Master
 sudo systemctl start docker
