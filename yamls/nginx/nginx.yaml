@@ -9,10 +9,14 @@ data:
         listen       80;
         server_name  nginx-service;
 
+        # location / {
+        #    proxy_pass  http://python-service:5000/;
+        # }
+        
         location / {
-            proxy_pass  http://python-service:5000/;
+            root   /usr/share/nginx/html;
+            index  index.html index.htm;
         }
-
         error_page  404              /404.html;
 
         # redirect server error pages to the static page /50x.html
