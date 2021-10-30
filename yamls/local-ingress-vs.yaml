@@ -2,7 +2,6 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: foo
-  namespace: default
 spec:
   entryPoints:                      # [1]
     - foo
@@ -12,11 +11,9 @@ spec:
     priority: 10                    # [4]
     middlewares:                    # [5]
     - name: middleware1             # [6]
-      namespace: default            # [7]
     services:                       # [8]
     - kind: Service
       name: foo
-      namespace: default
       passHostHeader: true
       port: 80
       responseForwarding:
@@ -34,7 +31,6 @@ spec:
     secretName: supersecret         # [10]
     options:                        # [11]
       name: opt                     # [12]
-      namespace: default            # [13]
     certResolver: foo               # [14]
     domains:                        # [15]
     - main: example.net             # [16]

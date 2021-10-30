@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: grafana-dep
-  namespace: default
   labels:
     app: grafana-dep
 spec:
@@ -44,7 +43,6 @@ apiVersion: v1
 kind: Service
 metadata:
   name: grafana-service
-  namespace: default
   labels:
     app: grafana-service
 spec:
