@@ -46,11 +46,11 @@ spec:
         - containerPort: 5432
 
       volumes:
-      - name: postgres-pv-claim
-        hostPath:
-          path: /var/data
-        # persistentVolumeClaim:
-        #   claimName: postgres-pv-claim
+      # - name: postgres-pv-claim
+      #   hostPath:
+      #     path: /var/data
+        persistentVolumeClaim:
+          claimName: postgres-pv-claim
 
 ---
 apiVersion: v1
