@@ -3,9 +3,9 @@ kind: Secret
 metadata:
   name: postgres-auth
 type: Opaque
-data:
+stringData:
   user: keycloak
-  password: keycloak-pass
+  password: keycloakpass
 ---
 apiVersion: apps/v1
 kind: Deployment
