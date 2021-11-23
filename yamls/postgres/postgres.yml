@@ -28,26 +28,26 @@ spec:
         - name: POSTGRES_DB
           value: keycloak
         - name: POSTGRES_USER
-          value: keycloak
-          # valueFrom:
-          #   secretKeyRef:
-          #     name: postgres-auth
-          #     key: user
+          # value: keycloak
+          valueFrom:
+            secretKeyRef:
+              name: postgres-auth
+              key: user
         - name: POSTGRES_PASSWORD
-          value: keycloakpass
-          # valueFrom:
-          #   secretKeyRef:
-          #     name: postgres-auth
-          #     key: password
+          # value: keycloakpass
+          valueFrom:
+            secretKeyRef:
+              name: postgres-auth
+              key: password
         ports:
         - containerPort: 5432
-        volumeMounts:
-        - name: pv-data
-          mountPath: /var/lib/postgresql/data
-      volumes:
-      - name: pv-data
-        persistentVolumeClaim:
-          claimName: postgres-pv-claim
+      #   volumeMounts:
+      #   - name: pv-data
+      #     mountPath: /var/lib/postgresql/data
+      # volumes:
+      # - name: pv-data
+      #   persistentVolumeClaim:
+      #     claimName: postgres-pv-claim
 
 ---
 apiVersion: v1
