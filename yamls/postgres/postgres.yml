@@ -39,6 +39,14 @@ spec:
               key: password
         ports:
         - containerPort: 5432
+        volumeMounts:
+        - name: pv-data
+          mountPath: /var/lib/postgresql/data
+      volumes:
+      - name: pv-data
+        persistentVolumeClaim:
+          claimName: postgres-pv-claim
+
 ---
 apiVersion: v1
 kind: Service
@@ -50,3 +58,4 @@ spec:
   ports:
   - port: 5432
     targetPort: 5432
+  
