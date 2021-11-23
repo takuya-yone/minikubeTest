@@ -28,7 +28,7 @@ spec:
         - name: DB_USER
           value: keycloak
         - name: DB_PASSWORD
-          value: keycloak-pass
+          value: keycloakpass
         - name: DB_DATABASE
           value: keycloak
         - name: DB_ADDR
