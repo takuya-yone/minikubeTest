@@ -29,8 +29,6 @@ spec:
           value: postgres
         - name: DB_ADDR
           value: postgres-service
-        - name: DB_PORT
-          value: 5432
         - name: DB_DATABASE
           value: keycloak
         - name: DB_USER
@@ -61,5 +59,6 @@ spec:
   - name: http
     port: 8080
     targetPort: 8080
+    nodePort: 30000
   selector:
     app: keycloak-dep
