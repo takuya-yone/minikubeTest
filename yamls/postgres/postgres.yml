@@ -39,16 +39,13 @@ spec:
             secretKeyRef:
               name: postgres-auth
               key: password
-        volumeMounts:
-        - name: postgres-pv-claim
-          mountPath: /var/lib/postgresql/data
         ports:
         - containerPort: 5432
-
+        volumeMounts:
+        - name: pv-data
+          mountPath: /var/lib/postgresql/data
       volumes:
-      # - name: postgres-pv-claim
-      #   hostPath:
-      #     path: /var/data
+      - name: pv-data
         persistentVolumeClaim:
           claimName: postgres-pv-claim
 
