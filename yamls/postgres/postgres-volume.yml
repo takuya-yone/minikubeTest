@@ -13,7 +13,7 @@ spec:
   capacity:
     storage: 3Gi
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   hostPath:
     path: "/var/data"
 
@@ -29,7 +29,7 @@ spec:
   # storageClassName: local-storage-class
   capacity:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 3Gi
