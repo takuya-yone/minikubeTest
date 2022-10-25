@@ -66,27 +66,27 @@ spec:
         - mountPath: /etc/nginx/conf.d/default.conf
           name: nginx-config
           subPath: default.conf
-        # env:
-        #   - name: MY_NODE_NAME
-        #     valueFrom:
-        #       fieldRef:
-        #         fieldPath: spec.nodeName
-        #   - name: MY_POD_NAME
-        #     valueFrom:
-        #       fieldRef:
-        #         fieldPath: metadata.name
-        #   - name: MY_POD_NAMESPACE
-        #     valueFrom:
-        #       fieldRef:
-        #         fieldPath: metadata.namespace
-        #   - name: MY_POD_IP
-        #     valueFrom:
-        #       fieldRef:
-        #         fieldPath: status.podIP
-        #   - name: MY_POD_SERVICE_ACCOUNT
-        #     valueFrom:
-        #       fieldRef:
-        #         fieldPath: spec.serviceAccountName
+        env:
+          - name: MY_NODE_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: spec.nodeName
+          - name: MY_POD_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: MY_POD_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: MY_POD_IP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP
+          - name: MY_POD_SERVICE_ACCOUNT
+            valueFrom:
+              fieldRef:
+                fieldPath: spec.serviceAccountName
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
