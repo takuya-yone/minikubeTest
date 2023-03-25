@@ -24,10 +24,10 @@ spec:
     spec:
       containers:
       - name: python
-        image: takuyayone/test-python:0.0.6
+        image: takuyayone/fastapi-sample:1.0.0
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 5000
+        - containerPort: 8000
           protocol: TCP  
         resources: {}
         terminationMessagePath: /dev/termination-log
@@ -51,9 +51,9 @@ spec:
   # externalTrafficPolicy: Cluster
   type: ClusterIP
   ports:
-  - port: 5000
+  - port: 8000
     protocol: TCP
-    targetPort: 5000
+    targetPort: 8000
   selector:
     app: python-dep
   sessionAffinity: None
