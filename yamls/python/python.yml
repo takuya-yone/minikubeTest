@@ -6,7 +6,7 @@ metadata:
     app: python-dep
 spec:
   progressDeadlineSeconds: 600
-  replicas: 1
+  replicas: 7
   revisionHistoryLimit: 10
   selector:
     matchLabels:
